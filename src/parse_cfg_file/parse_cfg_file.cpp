@@ -25,7 +25,7 @@
 #include "parse_cfg_file.h"
 
 #include <arpa/inet.h>
-
+#include <string>
 #include <cstdio>
 #include <iostream>
 
