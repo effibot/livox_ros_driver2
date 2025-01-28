@@ -479,13 +479,13 @@ void Lddc::InitImuMsg(const ImuData & imu_data, ImuMsg & imu_msg, uint64_t & tim
   imu_msg.angular_velocity.y = imu_data.gyro_y;
   imu_msg.angular_velocity.z = imu_data.gyro_z;
   if (acc_scale_ == 1.0) {
-    imu_msg.linear_acceleration.x = imu_data.acc_x;
-    imu_msg.linear_acceleration.y = imu_data.acc_y;
-    imu_msg.linear_acceleration.z = imu_data.acc_z;
+    imu_msg.linear_acceleration.x = imu_data.acc_x * 9.81;
+    imu_msg.linear_acceleration.y = imu_data.acc_y * 9.81;
+    imu_msg.linear_acceleration.z = imu_data.acc_z * 9.81;
   } else {
-    imu_msg.linear_acceleration.x = imu_data.acc_x * acc_scale_;
-    imu_msg.linear_acceleration.y = imu_data.acc_y * acc_scale_;
-    imu_msg.linear_acceleration.z = imu_data.acc_z * acc_scale_;
+    imu_msg.linear_acceleration.x = imu_data.acc_x * 9.81 * acc_scale_;
+    imu_msg.linear_acceleration.y = imu_data.acc_y * 9.81 * acc_scale_;
+    imu_msg.linear_acceleration.z = imu_data.acc_z * 9.81 * acc_scale_;
   }
 }
 
